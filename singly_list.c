@@ -4,7 +4,7 @@
  * Your program should typically implement insert and delete at all possible locations with proper check(s) as applicable. 
  * Include a display function as well and use it to show the content of your list after every operation. 
  * Include calls to insert and delete from the main
- *
+ * 
  **/
 
 
@@ -136,6 +136,31 @@ void deleteLast(){
     }
 }
 
+void deleteAt(int no){
+
+    int t = no;
+
+    if(no == 1){
+        deleteFirst();
+        return;
+    }
+    else if(no == Size()){
+        deleteLast();
+        return;
+    }
+
+    struct node *current = head;
+    struct node *prev = NULL;
+
+    while(t-- > 1){
+        prev = current;
+        current = current->next;
+    }
+
+    prev->next = current->next;
+    size--;
+}
+
 //Method to print the list
 void print(){
 
@@ -174,6 +199,19 @@ int main(){
 
     insertAfter(2, 500);
     
+    print();
+
+    printf("\n\n");
+
+    deleteAt(3);
+    deleteAt(4);
+    print();
+
+    printf("\n\n%d\n", Size());
+
+    printf("\n\n");
+
+    addFirst(52);
     print();
 
     return 0;
