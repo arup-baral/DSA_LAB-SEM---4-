@@ -89,9 +89,9 @@ void insertAfter(struct node **tail, int no, int data){
 
     newnode->next = temp->next;
     temp->next = newnode;
-    /*if(no == Size()){
+    if(no == Size()){
         *tail = newnode;
-    }*/
+    }
 
     size++;
 }
