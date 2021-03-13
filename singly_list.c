@@ -1,5 +1,10 @@
 /**
- * C programme to implement a Singly Linked List
+ * 
+ * Implement a singly connected linear linked list in C. 
+ * Your program should typically implement insert and delete at all possible locations with proper check(s) as applicable. 
+ * Include a display function as well and use it to show the content of your list after every operation. 
+ * Include calls to insert and delete from the main
+ *
  **/
 
 
