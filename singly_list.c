@@ -166,7 +166,7 @@ void print(){
 
     struct node *temp = head;
     while(temp != NULL){
-        printf("%d\n", temp->data);
+        printf("%d\t", temp->data);
         temp = temp->next;
     }
 }

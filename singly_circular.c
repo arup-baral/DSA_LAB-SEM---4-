@@ -175,7 +175,7 @@ void print(struct node *tail){
     int len = size;
 
     while(len-- > 0){
-        printf("%d\n", temp->data);
+        printf("%d\t", temp->data);
         temp = temp->next;
     }
 
