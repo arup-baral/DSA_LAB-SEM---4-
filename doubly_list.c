@@ -239,12 +239,20 @@ int main(){
     struct node *head = NULL;
 
     addLast(&head, 10);
+    print(head);
+    printf("\n\n");
     addFirst(&head, 5);
+    print(head);
+    printf("\n\n");
     addFirst(&head, 25);
+    print(head);
+    printf("\n\n");
     addLast(&head, 63);
     print(head);
     printf("\n\n");
     insertAfter(head, 1, 20);
+    print(head);
+    printf("\n\n");
     insertAfter(head, Size(), 30);
     print(head);
     printf("\n\n");
