@@ -8,6 +8,7 @@
  **/
 
 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -186,24 +187,39 @@ int main(){
     struct node *tail = NULL;
 
     addFirst(&tail, 20);
+    print(tail);
+    printf("\n\n");
     addFirst(&tail, 10);
+    print(tail);
+    printf("\n\n");
     addFirst(&tail, 5);
+    print(tail);
+    printf("\n\n");
     addLast(&tail, 60);
+    print(tail);
+    printf("\n\n");
     insertAfter(&tail, 2, 40);
+    print(tail);
+    printf("\n\n");
     insertAfter(&tail, 5, 30);
+    print(tail);
+    printf("\n\n");
     addLast(&tail, 35);
     addLast(&tail, 55);
     print(tail);
-    printf("%d\n", Size());
     printf("\n\n");
     deleteAt(tail, 6);
     print(tail);
     printf("\n\n");
     deleteFirst(&tail);
+    print(tail);
+    printf("\n\n");
     deleteLast(&tail);
     print(tail);
     printf("\n\n");
     deleteAt(tail, 5);
+    print(tail);
+    printf("\n\n");
     deleteAt(tail, 1);
     print(tail);
     printf("\n\n");
