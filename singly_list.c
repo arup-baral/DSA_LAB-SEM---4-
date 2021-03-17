@@ -8,6 +8,8 @@
  **/
 
 
+
+
 /**
  * import standard library and header file
  **/
@@ -179,8 +181,18 @@ int main(){
     addFirst(30);
     addFirst(20);
     addFirst(100);
+
+    print();
+
+    printf("\n\n");
+
     addLast(50);
     addLast(75);
+
+    print();
+
+    printf("\n\n");
+
     addFirst(10);
     addFirst(12);
 
@@ -189,8 +201,17 @@ int main(){
     printf("\n\n");
 
     deleteLast();
+    print();
+
+    printf("\n\n");
     deleteFirst();
+    print();
+
+    printf("\n\n");
     deleteFirst();
+    print();
+
+    printf("\n\n");
     deleteLast();
 
     print();
@@ -204,10 +225,11 @@ int main(){
     printf("\n\n");
 
     deleteAt(3);
-    deleteAt(4);
     print();
 
-    printf("\n\n%d\n", Size());
+    printf("\n\n");
+    deleteAt(4);
+    print();
 
     printf("\n\n");
 
