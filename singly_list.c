@@ -91,7 +91,12 @@ void insertAfter(int no, int data){
     struct node *newnode = (struct node *) malloc(sizeof(struct node));
     newnode->data = data;
 
-    if(no + 1 <= Size()){
+    if(no == Size()){
+        addLast(data);
+        return;
+    }
+
+    if(no < Size() && (no > 0)){
         struct node *temp = head;
         while(no-- > 1){
             temp = temp->next;
@@ -171,70 +176,88 @@ void print(){
         printf("%d\t", temp->data);
         temp = temp->next;
     }
+    printf("\n");
+}
+
+void Case(){
+
+    int n, item, no;
+
+    printf("Add item at the beginning of the list(1)\n");
+    printf("Add item at the end of the list(2)\n");
+    printf("Insert item at specific position of the list(3)\n");
+    printf("Delete item at the beginning of the list(4)\n");
+    printf("Delete item at the end of the list(5)\n");
+    printf("Delete item at specific position of the list(6)\n");
+    printf("Exit(0)\n");
+
+    scanf("%d", &n);
+
+    switch(n){
+
+        case 1:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addFirst(item);
+            print();
+            break;
+
+        case 2:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addLast(item);
+            print();
+            break;
+
+        case 3:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            insertAfter(no-1, item);
+            print();
+            break;
+
+        case 4:
+            
+            deleteFirst();
+            print();
+            break;
+
+        case 5:
+            
+            deleteLast();
+            print();
+            break;
+
+        case 6:
+
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            deleteAt(no);
+            print();
+            break;
+
+        case 0:
+            
+            exit(1);
+    }
 }
 
 int main(){
 
-    //Check the list whether it is working properly or not
+    int n;
 
-    addFirst(40);
-    addFirst(30);
-    addFirst(20);
-    addFirst(100);
+    printf("Do you want to add/delete item to the list:\n");
+    printf("To add/delete item(1)/Not to do anything(0)\n");
+    scanf("%d", &n);
 
-    print();
-
-    printf("\n\n");
-
-    addLast(50);
-    addLast(75);
-
-    print();
-
-    printf("\n\n");
-
-    addFirst(10);
-    addFirst(12);
-
-    print();
-
-    printf("\n\n");
-
-    deleteLast();
-    print();
-
-    printf("\n\n");
-    deleteFirst();
-    print();
-
-    printf("\n\n");
-    deleteFirst();
-    print();
-
-    printf("\n\n");
-    deleteLast();
-
-    print();
-
-    printf("\n\n");
-
-    insertAfter(2, 500);
-    
-    print();
-
-    printf("\n\n");
-
-    deleteAt(3);
-    print();
-
-    printf("\n\n");
-    deleteAt(4);
-    print();
-
-    printf("\n\n");
-
-    addFirst(52);
-    print();
+    while(n == 1){
+        Case();
+    }
 
     return 0;
 

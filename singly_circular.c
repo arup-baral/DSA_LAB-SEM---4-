@@ -180,49 +180,86 @@ void print(struct node *tail){
         temp = temp->next;
     }
 
+    printf("\n");
+
 }
 
 int main(){
 
     struct node *tail = NULL;
 
-    addFirst(&tail, 20);
-    print(tail);
-    printf("\n\n");
-    addFirst(&tail, 10);
-    print(tail);
-    printf("\n\n");
-    addFirst(&tail, 5);
-    print(tail);
-    printf("\n\n");
-    addLast(&tail, 60);
-    print(tail);
-    printf("\n\n");
-    insertAfter(&tail, 2, 40);
-    print(tail);
-    printf("\n\n");
-    insertAfter(&tail, 5, 30);
-    print(tail);
-    printf("\n\n");
-    addLast(&tail, 35);
-    addLast(&tail, 55);
-    print(tail);
-    printf("\n\n");
-    deleteAt(tail, 6);
-    print(tail);
-    printf("\n\n");
-    deleteFirst(&tail);
-    print(tail);
-    printf("\n\n");
-    deleteLast(&tail);
-    print(tail);
-    printf("\n\n");
-    deleteAt(tail, 5);
-    print(tail);
-    printf("\n\n");
-    deleteAt(tail, 1);
-    print(tail);
-    printf("\n\n");
+    int n;
+
+    printf("Do you want to add/delete item to the list:\n");
+    printf("To add/delete item(1)/Not to do anything(0)\n");
+    scanf("%d", &n);
+
+    while(n == 1){
+        int m, item, no;
+
+    printf("Add item at the beginning of the list(1)\n");
+    printf("Add item at the end of the list(2)\n");
+    printf("Insert item at specific position of the list(3)\n");
+    printf("Delete item at the beginning of the list(4)\n");
+    printf("Delete item at the end of the list(5)\n");
+    printf("Delete item at specific position of the list(6)\n");
+    printf("Exit(0)\n");
+
+    scanf("%d", &m);
+
+    switch(m){
+
+        case 1:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addFirst(&tail, item);
+            print(tail);
+            break;
+
+        case 2:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addLast(&tail, item);
+            print(tail);
+            break;
+
+        case 3:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            insertAfter(&tail, no-1, item);
+            print(tail);
+            break;
+
+        case 4:
+            
+            deleteFirst(&tail);
+            print(tail);
+            break;
+
+        case 5:
+            
+            deleteLast(&tail);
+            print(tail);;
+            break;
+
+        case 6:
+
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            deleteAt(tail, no);
+            print(tail);
+            break;
+
+        case 0:
+            
+            exit(1);
+    }
+    }
 
     return 0;
 }

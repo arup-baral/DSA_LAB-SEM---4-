@@ -231,6 +231,7 @@ void print(struct node *head){
         printf("%d\t", last->data);
         last = last->prev;
     }
+    printf("\n");
 }
 
 int main(){
@@ -238,45 +239,78 @@ int main(){
     /* Declare the head pointer */
     struct node *head = NULL;
 
-    addLast(&head, 10);
-    print(head);
-    printf("\n\n");
-    addFirst(&head, 5);
-    print(head);
-    printf("\n\n");
-    addFirst(&head, 25);
-    print(head);
-    printf("\n\n");
-    addLast(&head, 63);
-    print(head);
-    printf("\n\n");
-    insertAfter(head, 1, 20);
-    print(head);
-    printf("\n\n");
-    insertAfter(head, Size(), 30);
-    print(head);
-    printf("\n\n");
-    deleteAt(head, 2);
-    print(head);
-    printf("\n\n");
-    addLast(&head, 37);
-    print(head);
-    printf("\n\n");
-    deleteFirst(&head);
-    print(head);
-    printf("\n\n");
-    deleteLast(&head);
-    print(head);
-    printf("\n\n");
-    deleteLast(&head);
-    print(head);
-    printf("\n\n");
-    deleteLast(&head);
-    print(head);
-    printf("\n\n");
-    deleteAt(head, 2);
-    print(head);
-    printf("\n\n");
+    int n;
+
+    printf("Do you want to add/delete item to the list:\n");
+    printf("To add/delete item(1)/Not to do anything(0)\n");
+    scanf("%d", &n);
+
+    while(n == 1){
+        int m, item, no;
+
+    printf("Add item at the beginning of the list(1)\n");
+    printf("Add item at the end of the list(2)\n");
+    printf("Insert item at specific position of the list(3)\n");
+    printf("Delete item at the beginning of the list(4)\n");
+    printf("Delete item at the end of the list(5)\n");
+    printf("Delete item at specific position of the list(6)\n");
+    printf("Exit(0)\n");
+
+    scanf("%d", &m);
+
+    switch(m){
+
+        case 1:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addFirst(&head, item);
+            print(head);
+            break;
+
+        case 2:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            addLast(&head, item);
+            print(head);
+            break;
+
+        case 3:
+            
+            printf("Enter a data: ");
+            scanf("%d", &item);
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            insertAfter(head, no-1, item);
+            print(head);
+            break;
+
+        case 4:
+            
+            deleteFirst(&head);
+            print(head);
+            break;
+
+        case 5:
+            
+            deleteLast(&head);
+            print(head);;
+            break;
+
+        case 6:
+
+            printf("Enter the position: ");
+            scanf("%d", &no);
+            deleteAt(head, no);
+            print(head);
+            break;
+
+        case 0:
+            
+            exit(1);
+    }
+    }
 
     return 0;
 }
