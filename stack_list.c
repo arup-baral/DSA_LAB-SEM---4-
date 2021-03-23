@@ -67,7 +67,7 @@ int peek(struct node *top){
     return top->data;
 }
 
-void print(struct node *top){
+void printStack(struct node *top){
 
     struct node *temp = top;
 
@@ -75,28 +75,47 @@ void print(struct node *top){
         printf("%d\t", temp->data);
         temp = temp->next;
     }
+    printf("\n");
 
 }
 
 int main(){
 
+    int n, data;
+
     struct node *top = NULL;
 
-    push(&top, 10);
-    push(&top, 20);
-    push(&top, 56);
-    push(&top, 17);
-    push(&top, 56);
-    push(&top, 48);
+    while(1){
 
-    print(top);
-    printf("\n\n");
+        printf("Push an item to stack(1)\n");
+        printf("Pop item from stack(2)\n");
+        printf("Peek the item from stack(3)\n");
+        printf("Exit(0)\n");
 
-    pop(&top);
-    printf("\n\n");
-    print(top);
-    printf("\n\n");
-    printf("%d\n", peek(top));
+        scanf("%d", &n);
+
+        switch(n){
+            case 1:
+                printf("Enter an item: ");
+                scanf("%d", &data);
+                push(&top, data);
+                printStack(top);
+                break;
+            
+            case 2:
+                pop(&top);
+                printStack(top);
+                break;
+
+            case 3:
+                printf("%d\n", peek(top));
+                break;
+
+            case 0:
+                exit(1);
+        }
+    }
 
     return 0;
+    
 }

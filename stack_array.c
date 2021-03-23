@@ -103,22 +103,51 @@ void printStack(struct Stack* stack){
         temp--;
     }
 
+    printf("\n");
+
 }
 
 int main(){
 
-    struct Stack* stack = newStack(6);
+    int len;
 
-    printf("%d\n", pop(stack));
+    printf("Enter the size of the stack: ");
+    scanf("%d", &len);
 
-    push(stack, 15);
-    push(stack, 63);
-    push(stack, 85);
-    push(stack, 10);
-    printStack(stack);
-    printf("\n%d\n", peek(stack));
-    printf("%d\n", pop(stack));
-    printStack(stack);
+    struct Stack* stack = newStack(len);
+
+    int n, data;
+
+    while(1){
+
+        printf("Push an item to stack(1)\n");
+        printf("Pop item from stack(2)\n");
+        printf("Peek the item from stack(3)\n");
+        printf("Exit(0)\n");
+
+        scanf("%d", &n);
+
+        switch(n){
+            case 1:
+                printf("Enter an item: ");
+                scanf("%d", &data);
+                push(stack, data);
+                printStack(stack);
+                break;
+            
+            case 2:
+                pop(stack);
+                printStack(stack);
+                break;
+
+            case 3:
+                printf("%d\n", peek(stack));
+                break;
+
+            case 0:
+                exit(1);
+        }
+    }
 
     return 0;
     
