@@ -105,7 +105,6 @@ void print(struct node *top){
         printf("%5.2f\n", temp->data);
         temp = temp->next;
     }
-    printf("\n");
 }
 
 /* Check whether the character is a digit or not */
@@ -126,8 +125,9 @@ int main(){
     printf("\n\t\t\t\t\t---EVALUATE POSTFIX EXPRESSION---\n");
     printf("\t\t\t\t\t---------------------------------\n\n");
 
-    printf("Enter the POSTFIX expression :\n");
+    printf("Enter the POSTFIX expression (Maximum length can be 1024) :\n");
     printf("(You can use ',' as a delimiter between two tokens.\n For the 'end of expression' you can use '$' symbol)\n");
+    printf("(Your token can contain multiple digit)\n");
 
     char exp[size];
 
@@ -158,31 +158,36 @@ int main(){
             switch(c){
 
                 case '+':  /* when the operator is plus */
-
+                    
+                    printf("Scanned operator is +\n");
                     printf("%.2f + %.2f = %.2f\n", operand1, operand2, operand1+operand2);
                     push(&top, operand1+operand2);
                     break;
 
                 case '-':  /* when the operator is minus */
-
+                    
+                    printf("Scanned operator is -\n");
                     printf("%.2f - %.2f = %.2f\n", operand1, operand2, operand1-operand2);
                     push(&top, operand1-operand2);
                     break;
 
                 case '*':  /* when the operator is multiplier */
-
+                    
+                    printf("Scanned operator is *\n");
                     printf("%.2f * %.2f = %.2f\n", operand1, operand2, operand1*operand2);
                     push(&top, operand1*operand2);
                     break;
 
                 case '/':  /* when the operator is divider */
-
+                    
+                    printf("Scanned operator is /\n");
                     printf("%.2f / %.2f = %.2f\n", operand1, operand2, operand1/operand2);
                     push(&top, operand1/operand2);
                     break;
 
                 case '^':  /* when the operator is exponent */
-
+                    
+                    printf("Scanned operator is ^\n");
                     printf("%.2f to the power %.2f = %.2f\n", operand1, operand2, pow(operand1, operand2));
                     push(&top, pow(operand1, operand2));
                     break;
