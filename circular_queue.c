@@ -1,3 +1,8 @@
+/**
+ * 
+ * Implementing Circular Queue
+ * 
+ **/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -97,8 +102,8 @@ int main(){
 
         printf("Insert an item to queue(1)\n");
         printf("Remove item from queue(2)\n");
-        printf("Retrieve the front item from stack(3)\n");
-        printf("Retrieve theL last item from stack(4)\n");
+        printf("Retrieve the front item from queue(3)\n");
+        printf("Retrieve theL last item from queue(4)\n");
         printf("Exit(0)\n");
 
         scanf("%d", &n);
